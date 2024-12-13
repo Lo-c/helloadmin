@@ -4,6 +4,8 @@
 
 HelloAdmin 是一个基于 Gin + Ant Design Vue UI 的前后端分离管理系统，前端使用 Ant Design Vue UI，后端使用 Gin 框架。
 
+英文文档: [README_en.md](/README_en.md)
+
 ## 内置功能
 
 - [x] JWT 登录
