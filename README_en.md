@@ -5,7 +5,7 @@
 
 HelloAdmin is a front-end and back-end separation management system based on Gin + Ant Design Vue UI. The front-end uses Ant Design Vue UI, and the back-end uses the Gin framework.
 
-中文文档: [README_zh.md](/README.md)
+中文文档: [README.md](/README.md)
 
 ## Built-in Features
 
