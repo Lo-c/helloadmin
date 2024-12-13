@@ -1,23 +1,20 @@
-
-<p align="center"><a href="https://demo.helloadmin.cn" target="_blank"><img src="https://raw.githubusercontent.com/heliosker/helloadmin/main/images/logo.png" width="100"  alt="HelloAdmin Logo"></a></p>
+<p align="center"><a href="https://demo.helloadmin.cn" target="_blank"><img src="https://raw.githubusercontent.com/heliosker/helloadmin/main/images/logo.png" width="100" alt="HelloAdmin Logo"></a></p>
 
 # HelloAdmin
 
-HelloAdmin is a front-end and back-end separation management system based on Gin + Ant Design Vue UI. The front-end uses Ant Design Vue UI, and the back-end uses the Gin framework.
+HelloAdmin 是一个基于 Gin + Ant Design Vue UI 的前后端分离管理系统，前端使用 Ant Design Vue UI，后端使用 Gin 框架。
 
-中文文档: [README_zh.md](/README_zh.md)
+## 内置功能
 
-## Built-in Features
+- [x] JWT 登录
+- [x] 角色管理
+- [x] 菜单管理
+- [x] 部门管理
+- [x] 操作日志
 
-- [x] JWT Login
-- [x] Role Management
-- [x] Menu Management
-- [x] Department Management
-- [x] Operation Log
+体验地址: [http://demo.helloadmin.cn](http://demo.helloadmin.cn)
 
-Experience it at: [http://demo.helloadmin.cn](http://demo.helloadmin.cn)
-
-## Features
+## 特性
 
 * Gin: https://github.com/gin-gonic/gin
 * Gorm: https://github.com/go-gorm/gorm
@@ -33,7 +30,7 @@ Experience it at: [http://demo.helloadmin.cn](http://demo.helloadmin.cn)
 * Gomock: https://github.com/golang/mock
 * Swaggo: https://github.com/swaggo/swag
 
-## Screenshots
+## 效果图
 
 ![Login](https://raw.githubusercontent.com/heliosker/helloadmin/main/images/login.png)
 
@@ -43,10 +40,10 @@ Experience it at: [http://demo.helloadmin.cn](http://demo.helloadmin.cn)
 
 ![role](https://raw.githubusercontent.com/heliosker/helloadmin/main/images/role.png)
 
-## Frontend Repository
+## 前端仓库
 
-Link: [Helloadmin-ui](https://github.com/susie721/helloadmin-vue)
+Link：[Helloadmin-ui](https://github.com/Lo-c/helloadmin-vue)
 
-## License
+## 许可证
 
-HelloAdmin is released under the MIT License. For more information, please see the [LICENSE](LICENSE) file.
+HelloAdmin 是根据MIT许可证发布的。有关更多信息，请参见[LICENSE](LICENSE)文件。
