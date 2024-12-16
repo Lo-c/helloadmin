@@ -27,7 +27,8 @@ import (
 // @externalDocs.description  OpenAPI
 // @externalDocs.url          https://swagger.io/resources/open-api/
 func main() {
-	envConf := flag.String("conf", "config/local.yml", "config path, eg: -conf ./config/local.yml")
+	confFileName := "local.yml"
+	envConf := flag.String("conf", "config/"+confFileName, "config path, eg: -conf ./config/"+confFileName)
 	flag.Parse()
 	conf := config.NewConfig(*envConf)
 
