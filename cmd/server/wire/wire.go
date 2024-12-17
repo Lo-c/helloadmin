@@ -6,6 +6,7 @@ package wire
 import (
 	"github.com/google/wire"
 	"github.com/spf13/viper"
+	"helloadmin/internal/acme"
 	"helloadmin/internal/department"
 	"helloadmin/internal/login_record"
 	"helloadmin/internal/menu"
@@ -30,6 +31,7 @@ var repositorySet = wire.NewSet(
 	department.NewRepository,
 	login_record.NewRepository,
 	user.NewRepository,
+	acme.NewRepository,
 )
 
 var serviceSet = wire.NewSet(
