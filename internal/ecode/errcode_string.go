@@ -34,12 +34,12 @@ const (
 	_ErrCode_name_1 = "Bad RequestUnauthorized"
 	_ErrCode_name_2 = "Not Found"
 	_ErrCode_name_3 = "Internal Server Error"
-	_ErrCode_name_4 = "The email is already in useThe password is incorrectThe user does not existThe super administrator role cannot be modifiedThe role has users and cannot be deletedThe role not foundThe menu has children and cannot be deletedThe parent menu not foundThe department not foundThe department has children and cannot be deletedThe department has user and cannot be deletedThe parent department not foundErrAcmePathNotFoundErrAcmeEmailNotFound"
+	_ErrCode_name_4 = "The email is already in useThe password is incorrectThe user does not existThe super administrator role cannot be modifiedThe role has users and cannot be deletedThe role not foundThe menu has children and cannot be deletedThe parent menu not foundThe department not foundThe department has children and cannot be deletedThe department has user and cannot be deletedThe parent department not foundThe acme path not foundThe acme email not found"
 )
 
 var (
 	_ErrCode_index_1 = [...]uint8{0, 11, 23}
-	_ErrCode_index_4 = [...]uint16{0, 27, 52, 75, 122, 162, 180, 223, 248, 272, 321, 366, 397, 416, 436}
+	_ErrCode_index_4 = [...]uint16{0, 27, 52, 75, 122, 162, 180, 223, 248, 272, 321, 366, 397, 420, 444}
 )
 
 func (i ErrCode) String() string {
