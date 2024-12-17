@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+#func.md
 .env
 local.yml
 prod.yml
