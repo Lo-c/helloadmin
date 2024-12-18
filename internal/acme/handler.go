@@ -22,9 +22,7 @@ func NewHandler(log *log.Logger, svc Service) *Handler {
 }
 
 // GetAcme godoc
-//
 //	@Summary	获取配置
-//	@Schemes
 //	@Description	获取ACME配置
 //	@Tags			ACME模块
 //	@Accept			json
