@@ -6,6 +6,7 @@ package wire
 import (
 	"github.com/google/wire"
 	"github.com/spf13/viper"
+	"helloadmin/internal/acme"
 	"helloadmin/internal/repository"
 	"helloadmin/internal/server"
 	"helloadmin/internal/user"
@@ -18,6 +19,7 @@ var repositorySet = wire.NewSet(
 	repository.NewRedis,
 	repository.NewRepository,
 	user.NewRepository,
+	acme.NewRepository,
 )
 
 // build App

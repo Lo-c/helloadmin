@@ -40,6 +40,7 @@ var serviceSet = wire.NewSet(
 	department.NewService,
 	login_record.NewService,
 	user.NewService,
+	acme.NewService,
 )
 
 var handlerSet = wire.NewSet(
@@ -48,6 +49,7 @@ var handlerSet = wire.NewSet(
 	department.NewHandler,
 	login_record.NewHandler,
 	user.NewHandler,
+	acme.NewHandler,
 )
 
 var serverSet = wire.NewSet(
