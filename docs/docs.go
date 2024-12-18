@@ -24,14 +24,14 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/acme/": {
-            "get": {
+        "/acme/create": {
+            "post": {
                 "security": [
                     {
                         "Bearer": []
                     }
                 ],
-                "description": "查询所有/指定Acme配置",
+                "description": "创建ACME配置",
                 "consumes": [
                     "application/json"
                 ],
@@ -39,16 +39,18 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Acme模块"
+                    "ACME模块"
                 ],
-                "summary": "查询Acme配置",
+                "summary": "创建配置",
                 "parameters": [
                     {
-                        "type": "integer",
-                        "description": "ID",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/acme.CreateRequest"
+                        }
                     }
                 ],
                 "responses": {
@@ -1062,10 +1064,27 @@ const docTemplate = `{
                 }
             }
         },
+        "acme.CreateRequest": {
+            "type": "object",
+            "properties": {
+                "acme_path": {
+                    "type": "string",
+                    "example": "/root/.acme.sh"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "foo@bar.com"
+                },
+                "id": {
+                    "type": "integer",
+                    "example": 1
+                }
+            }
+        },
         "acme.Response": {
             "type": "object",
             "properties": {
-                "acme": {
+                "acme_data": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/acme.AcmeData"

@@ -28,8 +28,8 @@ func NewHandler(log *log.Logger, svc Service) *Handler {
 //	@Accept			json
 //	@Produce		json
 //	@Security		Bearer
-//	@Param			request	body	CreateRequest	true	"params"
-//	@Success		200		{object}Response
+//	@Param			request	body		CreateRequest	true	"params"
+//	@Success		200		{object}	Response
 //	@Router			/acme/create [post]
 func (a *Handler) CreateAcme(ctx *gin.Context) {
 	req := new(CreateRequest)
