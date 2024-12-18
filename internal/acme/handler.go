@@ -21,16 +21,16 @@ func NewHandler(log *log.Logger, svc Service) *Handler {
 }
 
 // CreateAcme godoc
-// @Summary 创建配置
-// @Schemes
-// @Description 创建ACME配置
-// @Tags ACME模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request body CreateRequest true "params"
-// @Success 200 {object}Response
-// @Router /acme/create [post]
+//	@Summary	创建配置
+//	@Schemes
+//	@Description	创建ACME配置
+//	@Tags			ACME模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	body	CreateRequest	true	"params"
+//	@Success		200		{object}Response
+//	@Router			/acme/create [post]
 func (a *Handler) CreateAcme(ctx *gin.Context) {
 	req := new(CreateRequest)
 	if err := ctx.ShouldBindJSON(req); err != nil {
