@@ -1,4 +1,23 @@
 definitions:
+  acme.AcmeData:
+    properties:
+      acme_path:
+        example: /root/.acme.sh
+        type: string
+      email:
+        example: foo@bar.com
+        type: string
+      id:
+        example: 1
+        type: integer
+    type: object
+  acme.Response:
+    properties:
+      acme:
+        items:
+          $ref: '#/definitions/acme.AcmeData'
+        type: array
+    type: object
   api.Response:
     properties:
       code:
@@ -352,6 +371,29 @@ info:
   title: HelloAdmin API
   version: 1.0.0
 paths:
+  /acme/:
+    get:
+      consumes:
+      - application/json
+      description: 查询所有/指定Acme配置
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/acme.Response'
+      security:
+      - Bearer: []
+      summary: 查询Acme配置
+      tags:
+      - Acme模块
   /department:
     get:
       consumes:
