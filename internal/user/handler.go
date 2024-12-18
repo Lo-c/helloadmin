@@ -35,16 +35,18 @@ func NewHandler(log *log.Logger, us Service, rs logging.Service, de department.S
 }
 
 // Search godoc
-// @Summary 搜索员工
-// @Schemes
-// @Description 搜索员工
-// @Tags 员工模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request query FindRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /user [get]
+//
+//	@Summary	搜
+//	@Summary	搜索员工
+//	@Schemes
+//	@Description	搜索员工
+//	@Tags			员工模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	query		FindRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/user [get]
 func (h *Handler) Search(ctx *gin.Context) {
 	req := new(FindRequest)
 	if err := ctx.ShouldBindQuery(req); err != nil {
@@ -59,17 +61,20 @@ func (h *Handler) Search(ctx *gin.Context) {
 	}
 }
 
+
+//
+//	@Summar
 // Store godoc
-// @Summary 添加员工
-// @Schemes
-// @Description 添加员工
-// @Tags 员工模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request body RegisterRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /user [post]
+//	@Summary	添加员工
+//	@Schemes
+//	@Description	添加员工
+//	@Tags			员工模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	body		RegisterRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/user [post]
 func (h *Handler) Store(ctx *gin.Context) {
 	req := new(RegisterRequest)
 	if err := ctx.ShouldBindJSON(req); err != nil {
@@ -82,18 +87,19 @@ func (h *Handler) Store(ctx *gin.Context) {
 		return
 	}
 	api.Success(ctx, nil)
+u
 }
 
 // Login godoc
-// @Summary 员工登录
-// @Schemes
-// @Description
-// @Tags 员工模块
-// @Accept json
-// @Produce json
-// @Param request body LoginRequest true "params"
-// @Success 200 {object} LoginResponse
-// @Router /login [post]
+//	@Summary	员工登录
+//	@Schemes
+//	@Description
+//	@Tags		员工模块
+//	@Accept		json
+//	@Produce	json
+//	@Param		request	body		LoginRequest	true	"params"
+//	@Success	200		{object}	LoginResponse
+//	@Router		/login [post]
 func (h *Handler) Login(ctx *gin.Context) {
 	var req LoginRequest
 	if err := ctx.ShouldBindJSON(&req); err != nil {
@@ -112,18 +118,19 @@ func (h *Handler) Login(ctx *gin.Context) {
 	}
 	_ = h.rs.Create(ctx, &record)
 	api.Success(ctx, resp)
+u
 }
 
 // Show godoc
-// @Summary 获取员工信息
-// @Schemes
-// @Description
-// @Tags 员工模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Success 200 {object} ProfileData
-// @Router /user/{id} [get]
+//	@Summary	获取员工信息
+//	@Schemes
+//	@Description
+//	@Tags		员工模块
+//	@Accept		json
+//	@Produce	json
+//	@Security	Bearer
+//	@Success	200	{object}	ProfileData
+//	@Router		/user/{id} [get]
 func (h *Handler) Show(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	user, err := h.us.GetProfileById(ctx, id)
@@ -132,18 +139,19 @@ func (h *Handler) Show(ctx *gin.Context) {
 		return
 	}
 	api.Success(ctx, user)
+/
 }
 
 // GetProfile godoc
-// @Summary 登录账号信息
-// @Schemes
-// @Description
-// @Tags 员工模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Success 200 {object} ProfileData
-// @Router /user/profile [get]
+//	@Summary	登录账号信息
+//	@Schemes
+//	@Description
+//	@Tags		员工模块
+//	@Accept		json
+//	@Produce	json
+//	@Security	Bearer
+//	@Success	200	{object}	ProfileData
+//	@Router		/user/profile [get]
 func (h *Handler) GetProfile(ctx *gin.Context) {
 	userId := GetUserIdFromCtx(ctx)
 	if userId == "" {
@@ -160,19 +168,20 @@ func (h *Handler) GetProfile(ctx *gin.Context) {
 		api.Error(ctx, http.StatusInternalServerError, err)
 	}
 	api.Success(ctx, map[string]interface{}{"user": user, "menu": menu})
+/
 }
 
 // Update godoc
-// @Summary 修改员工信息
-// @Schemes
-// @Description
-// @Tags 员工模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request body UpdateRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /user/{id} [put]
+//	@Summary	修改员工信息
+//	@Schemes
+//	@Description
+//	@Tags		员工模块
+//	@Accept		json
+//	@Produce	json
+//	@Security	Bearer
+//	@Param		request	body		UpdateRequest	true	"params"
+//	@Success	200		{object}	api.Response
+//	@Router		/user/{id} [put]
 func (h *Handler) Update(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	var req UpdateRequest
@@ -189,18 +198,19 @@ func (h *Handler) Update(ctx *gin.Context) {
 		return
 	}
 	api.Success(ctx, nil)
+/
 }
 
 // Delete godoc
-// @Summary 删除员工信息
-// @Schemes
-// @Description
-// @Tags 员工模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Success 200 {object} api.Response
-// @Router /user/{id} [delete]
+//	@Summary	删除员工信息
+//	@Schemes
+//	@Description
+//	@Tags		员工模块
+//	@Accept		json
+//	@Produce	json
+//	@Security	Bearer
+//	@Success	200	{object}	api.Response
+//	@Router		/user/{id} [delete]
 func (h *Handler) Delete(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	if err := h.us.Delete(ctx, id); err != nil {

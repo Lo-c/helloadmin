@@ -11,21 +11,21 @@ import (
 	"helloadmin/pkg/log"
 )
 
-// @title           HelloAdmin API
-// @version         1.0.0
-// @description     This is a sample HelloAdmin API.
-// @termsOfService  http://swagger.io/terms/
-// @contact.name   API Support
-// @contact.url    http://www.swagger.io/support
-// @contact.email  support@swagger.io
-// @license.name  Apache 2.0
-// @license.url   http://www.apache.org/licenses/LICENSE-2.0.html
-// @host      localhost:8080
-// @securityDefinitions.apiKey Bearer
-// @in header
-// @name Authorization
-// @externalDocs.description  OpenAPI
-// @externalDocs.url          https://swagger.io/resources/open-api/
+// @title						HelloAdmin API
+// @version					1.0.0
+// @description				This is a sample HelloAdmin API.
+// @termsOfService				http://swagger.io/terms/
+// @contact.name				API Support
+// @contact.url				http://www.swagger.io/support
+// @contact.email				support@swagger.io
+// @license.name				Apache 2.0
+// @license.url				http://www.apache.org/licenses/LICENSE-2.0.html
+// @host						localhost:8080
+// @securityDefinitions.apiKey	Bearer
+// @in							header
+// @name						Authorization
+// @externalDocs.description	OpenAPI
+// @externalDocs.url			https://swagger.io/resources/open-api/
 func main() {
 	confFileName := "local.yml"
 	envConf := flag.String("conf", "config/"+confFileName, "config path, eg: -conf ./config/"+confFileName)
