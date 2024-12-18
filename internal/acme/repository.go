@@ -30,9 +30,7 @@ func (r *acmeRepository) Find(ctx context.Context, req *FindRequest) (int64, *[]
 	var count int64
 	var acmes []Model
 	query := r.DB(ctx)
-	if req.Id != "" {
-		query = query.Where("id = ?", req.Id)
-	}
+	query = query.Where("id = ?", req.Id)
 	query.Model(Model{}).Count(&count)
 	if err := query.Find(&acmes).Error; err != nil {
 		return count, nil, err

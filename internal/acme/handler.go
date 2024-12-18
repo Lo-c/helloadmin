@@ -6,6 +6,7 @@ import (
 	"helloadmin/internal/api"
 	"helloadmin/pkg/log"
 	"net/http"
+	"strconv"
 )
 
 type Handler struct {
@@ -20,7 +21,31 @@ func NewHandler(log *log.Logger, svc Service) *Handler {
 	}
 }
 
+// GetAcme godoc
+//
+//	@Summary	获取配置
+//	@Schemes
+//	@Description	获取ACME配置
+//	@Tags			ACME模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id	path		int	true	"id"
+//	@Success		200	{object}	Response
+//	@Router			/acme/{id} [get]
+func (a *Handler) GetAcme(ctx *gin.Context) {
+	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
+	acme, err := a.svc.GetAcme(ctx, id)
+	if err != nil {
+		a.log.WithContext(ctx).Error("svc.GetAcme error", zap.Error(err))
+		api.Error(ctx, http.StatusInternalServerError, err)
+		return
+	}
+	api.Success(ctx, acme)
+}
+
 // CreateAcme godoc
+//
 //	@Summary	创建配置
 //	@Schemes
 //	@Description	创建ACME配置

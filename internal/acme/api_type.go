@@ -1,7 +1,7 @@
 package acme
 
 type FindRequest struct {
-	Id string `json:"id"`
+	Id uint `json:"id"`
 }
 
 type CreateRequest struct {
