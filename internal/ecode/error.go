@@ -35,6 +35,7 @@ const (
 	ErrDeptHasChild                                 // The department has children and cannot be deleted
 	ErrDeptHasUser                                  // The department has user and cannot be deleted
 	ErrDeptParentNotFound                           // The parent department not found
+	ErrAcmeIdNotFound                               // The acme id not found
 	ErrAcmePathNotFound                             // The acme path not found
 	ErrAcmeEmailNotFound                            // The acme email not found
 )

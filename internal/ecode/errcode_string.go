@@ -25,8 +25,9 @@ func _() {
 	_ = x[ErrDeptHasChild-10015]
 	_ = x[ErrDeptHasUser-10016]
 	_ = x[ErrDeptParentNotFound-10017]
-	_ = x[ErrAcmePathNotFound-10018]
-	_ = x[ErrAcmeEmailNotFound-10019]
+	_ = x[ErrAcmeIdNotFound-10018]
+	_ = x[ErrAcmePathNotFound-10019]
+	_ = x[ErrAcmeEmailNotFound-10020]
 }
 
 const (
@@ -34,12 +35,12 @@ const (
 	_ErrCode_name_1 = "Bad RequestUnauthorized"
 	_ErrCode_name_2 = "Not Found"
 	_ErrCode_name_3 = "Internal Server Error"
-	_ErrCode_name_4 = "The email is already in useThe password is incorrectThe user does not existThe super administrator role cannot be modifiedThe role has users and cannot be deletedThe role not foundThe menu has children and cannot be deletedThe parent menu not foundThe department not foundThe department has children and cannot be deletedThe department has user and cannot be deletedThe parent department not foundThe acme path not foundThe acme email not found"
+	_ErrCode_name_4 = "The email is already in useThe password is incorrectThe user does not existThe super administrator role cannot be modifiedThe role has users and cannot be deletedThe role not foundThe menu has children and cannot be deletedThe parent menu not foundThe department not foundThe department has children and cannot be deletedThe department has user and cannot be deletedThe parent department not foundThe acme id not foundThe acme path not foundThe acme email not found"
 )
 
 var (
 	_ErrCode_index_1 = [...]uint8{0, 11, 23}
-	_ErrCode_index_4 = [...]uint16{0, 27, 52, 75, 122, 162, 180, 223, 248, 272, 321, 366, 397, 420, 444}
+	_ErrCode_index_4 = [...]uint16{0, 27, 52, 75, 122, 162, 180, 223, 248, 272, 321, 366, 397, 418, 441, 465}
 )
 
 func (i ErrCode) String() string {
@@ -53,7 +54,7 @@ func (i ErrCode) String() string {
 		return _ErrCode_name_2
 	case i == 500:
 		return _ErrCode_name_3
-	case 10006 <= i && i <= 10019:
+	case 10006 <= i && i <= 10020:
 		i -= 10006
 		return _ErrCode_name_4[_ErrCode_index_4[i]:_ErrCode_index_4[i+1]]
 	default:
