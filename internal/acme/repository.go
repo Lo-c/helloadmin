@@ -65,3 +65,10 @@ func (r *acmeRepository) Update(ctx context.Context, id int64, acme *Model) erro
 	}
 	return nil
 }
+
+func (r *acmeRepository) Delete(ctx context.Context, id int64) error {
+	if err := r.DB(ctx).Delete(&Model{}, id).Error; err != nil {
+		return err
+	}
+	return nil
+}
