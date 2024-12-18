@@ -6,6 +6,7 @@ import (
 
 	"go.uber.org/zap"
 	"gorm.io/gorm"
+	"helloadmin/internal/acme"
 	"helloadmin/internal/department"
 	login_log "helloadmin/internal/login_record"
 	"helloadmin/internal/menu"
@@ -50,6 +51,10 @@ func (m *Migrate) Start(ctx context.Context) error {
 	}
 	if err := m.db.AutoMigrate(&operation_record.Model{}); err != nil {
 		m.log.Error("operation_record migrate error", zap.Error(err))
+		return err
+	}
+	if err := m.db.AutoMigrate(&acme.Model{}); err != nil {
+		m.log.Error("acme migrate error", zap.Error(err))
 		return err
 	}
 
