@@ -11,7 +11,7 @@ import (
 type Repository interface {
 	Find(ctx context.Context, req *FindRequest) (int64, *[]Model, error)
 	GetById(ctx context.Context, id int64) (*Model, error)
-	Create(ctx context.Context, id int64, acme *Model) error
+	Create(ctx context.Context, acme *Model) error
 	Update(ctx context.Context, id int64, acme *Model) error
 }
 
@@ -50,7 +50,7 @@ func (r *acmeRepository) GetById(ctx context.Context, id int64) (*Model, error) 
 	return &acme, nil
 }
 
-func (r *acmeRepository) Create(ctx context.Context, id int64, acme *Model) error {
+func (r *acmeRepository) Create(ctx context.Context, acme *Model) error {
 	if err := r.DB(ctx).Create(acme).Error; err != nil {
 		return err
 	}
