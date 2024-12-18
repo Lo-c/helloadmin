@@ -23,16 +23,16 @@ func NewHandler(log *log.Logger, svc Service) *Handler {
 }
 
 // StoreMenu godoc
-// @Summary 创建菜单
-// @Schemes
-// @Description 创建菜单
-// @Tags 菜单模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request body CreateRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /menu [post]
+//	@Summary	创建菜单
+//	@Schemes
+//	@Description	创建菜单
+//	@Tags			菜单模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	body		CreateRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/menu [post]
 func (m *Handler) StoreMenu(ctx *gin.Context) {
 	req := new(CreateRequest)
 	if err := ctx.ShouldBindJSON(req); err != nil {
@@ -48,16 +48,16 @@ func (m *Handler) StoreMenu(ctx *gin.Context) {
 }
 
 // GetMenu godoc
-// @Summary 菜单列表
-// @Schemes
-// @Description 查询菜单列表
-// @Tags 菜单模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request query FindRequest true "params"
-// @Success 200 {object} Response
-// @Router /menu [get]
+//	@Summary	菜单列表
+//	@Schemes
+//	@Description	查询菜单列表
+//	@Tags			菜单模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	query		FindRequest	true	"params"
+//	@Success		200		{object}	Response
+//	@Router			/menu [get]
 func (m *Handler) GetMenu(ctx *gin.Context) {
 	req := new(FindRequest)
 	if err := ctx.ShouldBindQuery(req); err != nil {
@@ -74,16 +74,16 @@ func (m *Handler) GetMenu(ctx *gin.Context) {
 }
 
 // GetOption godoc
-// @Summary 菜单选项
-// @Schemes
-// @Description 菜单下拉选项
-// @Tags 菜单模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request query OptionRequest true "params"
-// @Success 200 {object} []Option
-// @Router /menu/option [get]
+//	@Summary	菜单选项
+//	@Schemes
+//	@Description	菜单下拉选项
+//	@Tags			菜单模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	query		OptionRequest	true	"params"
+//	@Success		200		{object}	[]Option
+//	@Router			/menu/option [get]
 func (m *Handler) GetOption(ctx *gin.Context) {
 	req := new(OptionRequest)
 	if err := ctx.ShouldBindQuery(req); err != nil {
@@ -100,16 +100,16 @@ func (m *Handler) GetOption(ctx *gin.Context) {
 }
 
 // ShowMenu godoc
-// @Summary 查询菜单
-// @Schemes
-// @Description 查询单个菜单信息
-// @Tags 菜单模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "菜单ID"
-// @Success 200 {object} api.Response
-// @Router /menu/{id} [get]
+//	@Summary	查询菜单
+//	@Schemes
+//	@Description	查询单个菜单信息
+//	@Tags			菜单模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id	path		int	true	"菜单ID"
+//	@Success		200	{object}	api.Response
+//	@Router			/menu/{id} [get]
 func (m *Handler) ShowMenu(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	if menu, err := m.svc.GetMenuById(ctx, id); err != nil {
@@ -122,17 +122,17 @@ func (m *Handler) ShowMenu(ctx *gin.Context) {
 }
 
 // UpdateMenu godoc
-// @Summary 修改菜单
-// @Schemes
-// @Description 修改单个菜单信息
-// @Tags 菜单模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "菜单ID"
-// @Param request body UpdateRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /menu/{id} [put]
+//	@Summary	修改菜单
+//	@Schemes
+//	@Description	修改单个菜单信息
+//	@Tags			菜单模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id		path		int				true	"菜单ID"
+//	@Param			request	body		UpdateRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/menu/{id} [put]
 func (m *Handler) UpdateMenu(ctx *gin.Context) {
 	req := new(UpdateRequest)
 	if err := ctx.ShouldBindJSON(req); err != nil {
@@ -150,16 +150,16 @@ func (m *Handler) UpdateMenu(ctx *gin.Context) {
 }
 
 // DeleteMenu godoc
-// @Summary 删除菜单
-// @Schemes
-// @Description 删除单个菜单
-// @Tags 菜单模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "菜单ID"
-// @Success 200 {object} api.Response
-// @Router /menu/{id} [delete]
+//	@Summary	删除菜单
+//	@Schemes
+//	@Description	删除单个菜单
+//	@Tags			菜单模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id	path		int	true	"菜单ID"
+//	@Success		200	{object}	api.Response
+//	@Router			/menu/{id} [delete]
 func (m *Handler) DeleteMenu(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	if err := m.svc.DeleteMenu(ctx, id); err != nil {

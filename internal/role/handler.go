@@ -24,16 +24,16 @@ func NewHandler(log *log.Logger, svc Service) *Handler {
 }
 
 // StoreRole godoc
-// @Summary 创建角色
-// @Schemes
-// @Description 创建角色
-// @Tags 角色模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request body CreateRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /role [post]
+//	@Summary	创建角色
+//	@Schemes
+//	@Description	创建角色
+//	@Tags			角色模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	body		CreateRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/role [post]
 func (r *Handler) StoreRole(ctx *gin.Context) {
 	req := new(CreateRequest)
 	if err := ctx.ShouldBindJSON(req); err != nil {
@@ -50,16 +50,16 @@ func (r *Handler) StoreRole(ctx *gin.Context) {
 }
 
 // GetRole godoc
-// @Summary 角色列表
-// @Schemes
-// @Description 查询角色列表
-// @Tags 角色模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request query FindRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /role [get]
+//	@Summary	角色列表
+//	@Schemes
+//	@Description	查询角色列表
+//	@Tags			角色模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	query		FindRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/role [get]
 func (r *Handler) GetRole(ctx *gin.Context) {
 	req := new(FindRequest)
 	if err := ctx.ShouldBindQuery(req); err != nil {
@@ -76,16 +76,16 @@ func (r *Handler) GetRole(ctx *gin.Context) {
 }
 
 // ShowRole godoc
-// @Summary 查询角色
-// @Schemes
-// @Description 查询单个角色信息
-// @Tags 角色模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "角色ID"
-// @Success 200 {object} api.Response
-// @Router /role/{id} [get]
+//	@Summary	查询角色
+//	@Schemes
+//	@Description	查询单个角色信息
+//	@Tags			角色模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id	path		int	true	"角色ID"
+//	@Success		200	{object}	api.Response
+//	@Router			/role/{id} [get]
 func (r *Handler) ShowRole(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	if role, err := r.svc.GetRoleById(ctx, id); err != nil {
@@ -98,17 +98,17 @@ func (r *Handler) ShowRole(ctx *gin.Context) {
 }
 
 // UpdateRole godoc
-// @Summary 修改角色
-// @Schemes
-// @Description 修改单个角色信息
-// @Tags 角色模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "角色ID"
-// @Param request body UpdateRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /role/{id} [put]
+//	@Summary	修改角色
+//	@Schemes
+//	@Description	修改单个角色信息
+//	@Tags			角色模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id		path		int				true	"角色ID"
+//	@Param			request	body		UpdateRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/role/{id} [put]
 func (r *Handler) UpdateRole(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	req := new(UpdateRequest)
@@ -126,17 +126,17 @@ func (r *Handler) UpdateRole(ctx *gin.Context) {
 }
 
 // UpdateRoleMenu godoc
-// @Summary 修改角色权限
-// @Schemes
-// @Description 修改单个角色权限
-// @Tags 角色模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "角色ID"
-// @Param request body MenuRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /role/{id}/menu [put]
+//	@Summary	修改角色权限
+//	@Schemes
+//	@Description	修改单个角色权限
+//	@Tags			角色模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id		path		int			true	"角色ID"
+//	@Param			request	body		MenuRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/role/{id}/menu [put]
 func (r *Handler) UpdateRoleMenu(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	req := new(MenuRequest)
@@ -154,16 +154,16 @@ func (r *Handler) UpdateRoleMenu(ctx *gin.Context) {
 }
 
 // DeleteRole godoc
-// @Summary 删除角色
-// @Schemes
-// @Description 删除单个角色
-// @Tags 角色模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "角色ID"
-// @Success 200 {object} api.Response
-// @Router /role/{id} [delete]
+//	@Summary	删除角色
+//	@Schemes
+//	@Description	删除单个角色
+//	@Tags			角色模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id	path		int	true	"角色ID"
+//	@Success		200	{object}	api.Response
+//	@Router			/role/{id} [delete]
 func (r *Handler) DeleteRole(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	if err := r.svc.DeleteRole(ctx, id); err != nil {

@@ -23,16 +23,16 @@ func NewHandler(log *log.Logger, svc Service) *Handler {
 }
 
 // StoreDepartment godoc
-// @Summary 创建部门
-// @Schemes
-// @Description 创建部门
-// @Tags 部门模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request body CreateRequest true "params"
-// @Success 200 {object} Response
-// @Router /department [post]
+//	@Summary	创建部门
+//	@Schemes
+//	@Description	创建部门
+//	@Tags			部门模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	body		CreateRequest	true	"params"
+//	@Success		200		{object}	Response
+//	@Router			/department [post]
 func (d *Handler) StoreDepartment(ctx *gin.Context) {
 	req := new(CreateRequest)
 	if err := ctx.ShouldBindJSON(req); err != nil {
@@ -48,16 +48,16 @@ func (d *Handler) StoreDepartment(ctx *gin.Context) {
 }
 
 // GetDepartment godoc
-// @Summary 部门列表
-// @Schemes
-// @Description 查询部门列表
-// @Tags 部门模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request query FindRequest true "params"
-// @Success 200 {object} Response
-// @Router /department [get]
+//	@Summary	部门列表
+//	@Schemes
+//	@Description	查询部门列表
+//	@Tags			部门模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	query		FindRequest	true	"params"
+//	@Success		200		{object}	Response
+//	@Router			/department [get]
 func (d *Handler) GetDepartment(ctx *gin.Context) {
 	req := new(FindRequest)
 	if err := ctx.ShouldBindQuery(req); err != nil {
@@ -75,16 +75,16 @@ func (d *Handler) GetDepartment(ctx *gin.Context) {
 }
 
 // ShowDepartment godoc
-// @Summary 查询部门
-// @Schemes
-// @Description 查询单个部门信息
-// @Tags 部门模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "部门ID"
-// @Success 200 {object} Response
-// @Router /department/{id} [get]
+//	@Summary	查询部门
+//	@Schemes
+//	@Description	查询单个部门信息
+//	@Tags			部门模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id	path		int	true	"部门ID"
+//	@Success		200	{object}	Response
+//	@Router			/department/{id} [get]
 func (d *Handler) ShowDepartment(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	if department, err := d.svc.GetDepartmentById(ctx, id); err != nil {
@@ -97,17 +97,17 @@ func (d *Handler) ShowDepartment(ctx *gin.Context) {
 }
 
 // UpdateDepartment godoc
-// @Summary 修改部门
-// @Schemes
-// @Description 修改单个部门信息
-// @Tags 部门模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "部门ID"
-// @Param request body UpdateRequest true "params"
-// @Success 200 {object} Response
-// @Router /department/{id} [put]
+//	@Summary	修改部门
+//	@Schemes
+//	@Description	修改单个部门信息
+//	@Tags			部门模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id		path		int				true	"部门ID"
+//	@Param			request	body		UpdateRequest	true	"params"
+//	@Success		200		{object}	Response
+//	@Router			/department/{id} [put]
 func (d *Handler) UpdateDepartment(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	req := new(UpdateRequest)
@@ -125,16 +125,16 @@ func (d *Handler) UpdateDepartment(ctx *gin.Context) {
 }
 
 // DeleteDepartment godoc
-// @Summary 删除部门
-// @Schemes
-// @Description 删除单个部门
-// @Tags 部门模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param id path int true "部门ID"
-// @Success 200 {object} Response
-// @Router /department/{id} [delete]
+//	@Summary	删除部门
+//	@Schemes
+//	@Description	删除单个部门
+//	@Tags			部门模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			id	path		int	true	"部门ID"
+//	@Success		200	{object}	Response
+//	@Router			/department/{id} [delete]
 func (d *Handler) DeleteDepartment(ctx *gin.Context) {
 	id, _ := strconv.ParseInt(ctx.Param("id"), 10, 64)
 	if err := d.svc.DeleteDepartment(ctx, id); err != nil {

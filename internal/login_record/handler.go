@@ -22,16 +22,16 @@ func NewHandler(log *log.Logger, svc Service) *Handler {
 }
 
 // SearchLoginRecord godoc
-// @Summary 登录日志
-// @Schemes
-// @Description 登录日志列表
-// @Tags 日志模块
-// @Accept json
-// @Produce json
-// @Security Bearer
-// @Param request query FindRequest true "params"
-// @Success 200 {object} api.Response
-// @Router /record/login [get]
+//	@Summary	登录日志
+//	@Schemes
+//	@Description	登录日志列表
+//	@Tags			日志模块
+//	@Accept			json
+//	@Produce		json
+//	@Security		Bearer
+//	@Param			request	query		FindRequest	true	"params"
+//	@Success		200		{object}	api.Response
+//	@Router			/record/login [get]
 func (lrh *Handler) SearchLoginRecord(ctx *gin.Context) {
 	req := new(FindRequest)
 	if err := ctx.ShouldBind(req); err != nil {
