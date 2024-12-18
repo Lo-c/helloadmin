@@ -6,6 +6,7 @@ import (
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"helloadmin/docs"
+	"helloadmin/internal/acme"
 	"helloadmin/internal/api"
 	"helloadmin/internal/department"
 	"helloadmin/internal/login_record"
@@ -27,6 +28,7 @@ func NewHTTPServer(
 	menuHandler *menu.Handler,
 	departHandler *department.Handler,
 	loginRecordHandler *login_record.Handler,
+	acmeHandler *acme.Handler,
 ) *http.Server {
 	gin.SetMode(gin.DebugMode)
 	s := http.NewServer(
@@ -105,6 +107,10 @@ func NewHTTPServer(
 		{
 			rer.GET("login", loginRecordHandler.SearchLoginRecord)
 			rer.GET("operation", loginRecordHandler.SearchLoginRecord)
+		}
+		acer := group.Group("/acme").Use(middleware.StrictAuth(jwt, logger))
+		{
+			acer.POST("/Create", acmeHandler.CreateAcme)
 		}
 
 	}
