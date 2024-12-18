@@ -383,6 +383,29 @@ info:
   title: HelloAdmin API
   version: 1.0.0
 paths:
+  /acme/{id}:
+    get:
+      consumes:
+      - application/json
+      description: 获取ACME配置
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/acme.Response'
+      security:
+      - Bearer: []
+      summary: 获取配置
+      tags:
+      - ACME模块
   /acme/create:
     post:
       consumes:

@@ -56,6 +56,43 @@
                 }
             }
         },
+        "/acme/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "获取ACME配置",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ACME模块"
+                ],
+                "summary": "获取配置",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/acme.Response"
+                        }
+                    }
+                }
+            }
+        },
         "/department": {
             "get": {
                 "security": [
