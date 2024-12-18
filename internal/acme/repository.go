@@ -13,6 +13,7 @@ type Repository interface {
 	GetById(ctx context.Context, id int64) (*Model, error)
 	Create(ctx context.Context, acme *Model) error
 	Update(ctx context.Context, id int64, acme *Model) error
+	Delete(ctx context.Context, id int64) error
 }
 
 func NewRepository(r *repository.Repository) Repository {
