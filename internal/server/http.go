@@ -110,7 +110,7 @@ func NewHTTPServer(
 		}
 		acer := group.Group("/acme").Use(middleware.StrictAuth(jwt, logger))
 		{
-			acer.POST("/Create", acmeHandler.CreateAcme)
+			acer.POST("/create", acmeHandler.CreateAcme)
 		}
 
 	}
